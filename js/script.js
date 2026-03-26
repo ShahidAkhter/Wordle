@@ -11,10 +11,9 @@ let turnNo = 0;
 let turns = 4;
 document.getElementById('nav').innerText = `Wordle: Chances ${turns + 2}`;
 
-const RandomTextGenerator = async() => {
-    fetchingContent = await fetch(`https://random-word-api.herokuapp.com/word`);
-    responseJSON = await fetchingContent.json();
-    generatedWord = responseJSON[0].toUpperCase();
+const RandomTextGenerator = () => {
+    randomWords = Math.floor(Math.random() * lastWords) + firstWords;
+    generatedWord = findWords[randomWords].toUpperCase();
     return 0;
 }
 
