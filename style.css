@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-family: 'Ubuntu', sans-serif;
+  overflow-x: hidden;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 5vmin;
+  font-weight: bold;
+  padding: 2vmin;
+  border-bottom: 1px solid black;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  padding-bottom: 4px;
+}
+
+#gameBoard,
+#result,
+#wordIs,
+#predictions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*   width: 36vmin; */
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 6vmin;
+  font-weight: bold;
+  margin: 4px;
+  padding: 2px;
+  background-color: white;
+  text-align: center;
+}
+
+.words {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vmin;
+  width: 10vmin;
+  margin: 2px 4px;
+  border: 1px solid black;
+}
+
+.flex {
+  display: flex;
+}
+
+.f-col {
+  flex-direction: column;
+}
+
+.reset {
+  color: black;
+}
+
+.correctLetter {
+  color: green;
+}
+
+.incorrectLetter {
+  color: red;
+}
+
+.letterIncludesInWord {
+  color: #001fff;
+}
+
+.displayNone {
+  display: none !important;
+}

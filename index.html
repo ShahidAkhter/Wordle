@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Wordle.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="keyboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Wordle</title>
+</head>
+
+<body>
+    <nav id="nav">Wordle</nav>
+    <div id="container">
+        <div id="gameBoard">
+            <!-- Content Managed By JavaScript -->
+        </div>
+        <div class="f-col" id="predictions"></div>
+    </div>
+    <div id="result"></div>
+    <div id="wordIs"></div>
+
+    <div class="keyboardComponent">
+        <div class="btn-keyboard-visibility" id="keyboardVisibilityOne">Virtual Keyboard</div>
+        <div class="keyboard displayNone" id="keyboardID">
+            <div class="row">
+                <div class="key">Q</div>
+                <div class="key">W</div>
+                <div class="key">E</div>
+                <div class="key">R</div>
+                <div class="key">T</div>
+                <div class="key">Y</div>
+                <div class="key">U</div>
+                <div class="key">I</div>
+                <div class="key">O</div>
+                <div class="key">P</div>
+            </div>
+
+            <div class="row">
+                <div class="key">A</div>
+                <div class="key">S</div>
+                <div class="key">D</div>
+                <div class="key">F</div>
+                <div class="key">G</div>
+                <div class="key">H</div>
+                <div class="key">J</div>
+                <div class="key">K</div>
+                <div class="key">L</div>
+            </div>
+
+            <div class="row">
+                <div class="key" id="enter"><i class="fas fa-check" id="enterInner"></i></div>
+                <div class="key">Z</div>
+                <div class="key">X</div>
+                <div class="key">C</div>
+                <div class="key">V</div>
+                <div class="key">B</div>
+                <div class="key">N</div>
+                <div class="key">M</div>
+                <div class="key" id="backspace"><i class="fas fa-backspace" id="backspaceInner"></i></div>
+            </div>
+            <div class="row">
+                <div class="btn-keyboard-visibility" id="keyboardVisibilityTwo">Virtual Keyboard</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/words.js"></script>
+    <!-- <script src="https://wordle.shahidakhter.repl.co/arr.js"></script> -->
+    <script src="js/script.js"></script>
+    <script src="js/isCorrectWordDetection.js"></script>
+    <script src="js/gameEngine.js"></script>
+    <script src="js/keyEvents.js"></script>
+
+</body>
+
+</html>

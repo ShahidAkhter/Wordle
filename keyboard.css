@@ -1,0 +1,55 @@
+.keyboardComponent {
+    position: fixed;
+    bottom: 4px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.keyboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.key,
+.btn-keyboard-visibility {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.btn-keyboard-visibility {
+    height: 30px;
+    width: 280px;
+    padding: 4px 10px;
+    margin: 4px 10px;
+    margin-bottom: 0;
+}
+
+.key:hover,
+.btn-keyboard-visibility:hover {
+    background-color: #ccc;
+}
