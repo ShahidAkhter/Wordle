@@ -19,12 +19,16 @@ nav {
   border-bottom: 1px solid black;
 }
 
+.game {
+  padding-bottom: 200px;
+}
+
 #container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column-reverse;
-  padding-bottom: 4px;
+  padding: 4px;
 }
 
 #gameBoard,

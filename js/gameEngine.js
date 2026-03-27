@@ -26,7 +26,7 @@ const gameEngine = async () => {
         return 0;
     }
     defineText();
-    if (generatedWord == playerWord || turnNo >= turns) {
+    if (generatedWord == playerWord || turnNo == turns) {
         resultAlwaysRunner();
     }
     ExplainingEnteredData();

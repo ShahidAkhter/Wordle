@@ -5,7 +5,7 @@ let gameBoard = document.getElementById('gameBoard');
 let result = document.getElementById('result');
 let predictions = document.getElementById('predictions');
 let playerWord = "";
-let turnNo = 1;
+let turnNo = 0;
 let turns = 0;
 let updating = false;
 document.getElementById('nav').innerText = `Wordle: Chances ...`;
@@ -15,7 +15,7 @@ const RandomTextGenerator = async () => {
     responseJSON = await fetchingContent.json();
     generatedWord = responseJSON[0].toUpperCase();
     document.getElementById('nav').innerText = `Wordle: Chances ${generatedWord.length + 2}`;
-    turns = generatedWord.length + 2;
+    turns = generatedWord.length + 1;
     return 0;
 }
 
