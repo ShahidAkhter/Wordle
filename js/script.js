@@ -4,16 +4,18 @@ let html = "";
 let gameBoard = document.getElementById('gameBoard');
 let result = document.getElementById('result');
 let predictions = document.getElementById('predictions');
-let firstWords = 0;
-let lastWords = findWords.length - 1;
 let playerWord = "";
-let turnNo = 0;
-let turns = 4;
-document.getElementById('nav').innerText = `Wordle: Chances ${turns + 2}`;
+let turnNo = 1;
+let turns = 0;
+let updating = false;
+document.getElementById('nav').innerText = `Wordle: Chances ...`;
 
-const RandomTextGenerator = () => {
-    randomWords = Math.floor(Math.random() * lastWords) + firstWords;
-    generatedWord = findWords[randomWords].toUpperCase();
+const RandomTextGenerator = async () => {
+    fetchingContent = await fetch(`https://random-word-api.herokuapp.com/word`);
+    responseJSON = await fetchingContent.json();
+    generatedWord = responseJSON[0].toUpperCase();
+    document.getElementById('nav').innerText = `Wordle: Chances ${generatedWord.length + 2}`;
+    turns = generatedWord.length + 2;
     return 0;
 }
 
@@ -80,9 +82,12 @@ const ExplainingEnteredData = () => {
     return 0;
 }
 
-RandomTextGenerator();
-gameBoardBuilder();
+const main = async () => {
+    a = await RandomTextGenerator();
+    gameBoardBuilder();
+}
 
+main();
 
 
 document.getElementById('keyboardVisibilityOne').addEventListener('click', () => {

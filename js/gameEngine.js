@@ -9,6 +9,10 @@ const resultAlwaysRunner = () => {
 }
 
 const gameEngine = async () => {
+    if (updating) {
+        return 0;
+    }
+    updating = true;
     if (document.getElementById(`word${generatedWord.length - 1}`).innerText == "") {
         return 0;
     }
@@ -22,14 +26,12 @@ const gameEngine = async () => {
         return 0;
     }
     defineText();
-    if (generatedWord == playerWord) {
+    if (generatedWord == playerWord || turnNo >= turns) {
         resultAlwaysRunner();
-        turnNo = turns + 1;
-        // return 0;
-    }
-    if (turnNo > turns) {
-        resultAlwaysRunner();
-        // return 0;
     }
     ExplainingEnteredData();
+
+    setTimeout(() => {
+        updating = false;
+    }, 1000);
 }
