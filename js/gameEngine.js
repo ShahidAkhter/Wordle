@@ -9,29 +9,37 @@ const resultAlwaysRunner = () => {
 }
 
 const gameEngine = async () => {
-    if (updating) {
-        return 0;
-    }
-    updating = true;
-    if (document.getElementById(`word${generatedWord.length - 1}`).innerText == "") {
-        return 0;
-    }
-    if (gameBoard.classList.contains(`displayNone`)) {
-        return 0;
-    }
-    UserText();
-    correctWordDetection = await isCorrectWord(playerWord);
-    if (!correctWordDetection) {
-        ResetWrongUserText();
-        return 0;
-    }
-    defineText();
-    if (generatedWord == playerWord || turnNo == turns) {
-        resultAlwaysRunner();
-    }
-    ExplainingEnteredData();
+    try {
+        if (updating) {
+            return 0;
+        }
+        updating = true;
+        if (document.getElementById(`word${generatedWord.length - 1}`).innerText == "") {
+            updating = false;
+            return 0;
+        }
+        if (gameBoard.classList.contains(`displayNone`)) {
+            updating = false;
+            return 0;
+        }
+        UserText();
+        correctWordDetection = await isCorrectWord(playerWord);
+        if (!correctWordDetection) {
+            ResetWrongUserText();
+            updating = false;
+            return 0;
+        }
+        defineText();
+        if (generatedWord == playerWord || turnNo == turns) {
+            resultAlwaysRunner();
+        }
+        ExplainingEnteredData();
 
-    setTimeout(() => {
-        updating = false;
-    }, 1000);
+        setTimeout(() => {
+            updating = false;
+        }, 1000);
+    } catch (error) {
+        console.log(error);
+        return 0;
+    }
 }

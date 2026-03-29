@@ -4,6 +4,8 @@ let html = "";
 let gameBoard = document.getElementById('gameBoard');
 let result = document.getElementById('result');
 let predictions = document.getElementById('predictions');
+let firstWords = 0;
+let lastWords = findWords.length - 1;
 let playerWord = "";
 let turnNo = 0;
 let turns = 0;
@@ -11,9 +13,15 @@ let updating = false;
 document.getElementById('nav').innerText = `Wordle: Chances ...`;
 
 const RandomTextGenerator = async () => {
-    fetchingContent = await fetch(`https://random-word-api.herokuapp.com/word`);
-    responseJSON = await fetchingContent.json();
-    generatedWord = responseJSON[0].toUpperCase();
+    try {
+        let fetchingContent = await fetch(`https://random-word-api.herokuapp.com/word`);
+        let responseJSON = await fetchingContent.json();
+        generatedWord = responseJSON[0].toUpperCase();
+    } catch (error) {
+        randomWords = Math.floor(Math.random() * lastWords) + firstWords;
+        generatedWord = findWords[randomWords].toUpperCase();
+        // console.log(error);
+    }
     document.getElementById('nav').innerText = `Wordle: Chances ${generatedWord.length + 2}`;
     turns = generatedWord.length + 1;
     return 0;
